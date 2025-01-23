@@ -103,7 +103,7 @@ pipeline {
     post { 
         always { 
             echo 'i am deleting the workspace'
-            deleteDir() // this will delete workspace in agent 
+            // deleteDir() // this will delete workspace in agent 
         }
         failure {
             echo "you are seeing this because job is failed"
