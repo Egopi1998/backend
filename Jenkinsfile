@@ -70,21 +70,21 @@ pipeline {
         stage('upload artifact to nexus') {
             steps{
                 script{
-                    nexusArtifactUploader {
-                    nexusVersion: 'nexus3',
-                    protocol: 'http',
-                    nexusUrl: "${nexus_url}",
-                    groupId: 'com.expense',
-                    version: "${appVersion}",
-                    repository: 'backend',
-                    credentialsId: 'nexus_auth', // manage jenkins - credentials - system - global cred 
-                    artifact: [
-                        artifactId: 'backend',
-                        type: 'zip',
-                        classifier: '',
-                        file: "backend-" + "${appVersion}" + '.zip',
+                    nexusArtifactUploader(
+                        nexusVersion: 'nexus3',
+                        protocol: 'http',
+                        nexusUrl: "${nexus_url}",
+                        groupId: 'com.expense',
+                        version: "${appVersion}",
+                        repository: "backend",
+                        credentialsId: 'nexus-auth',
+                        artifacts: [
+                            [artifactId: "backend" ,
+                            classifier: '',
+                            file: "backend-" + "${appVersion}" + '.zip',
+                            type: 'zip']
                         ]
-                    }
+                    )
                 }
             }
         }
