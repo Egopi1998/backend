@@ -22,7 +22,7 @@ pipeline {
                 // ls -ltr is just to see all files successfully taken from git
             }
         }
-        stage('Sample test'){
+        stage('appVersion'){
             steps{
                 script{
                     def appVersion = readJSON file: 'package.json'
