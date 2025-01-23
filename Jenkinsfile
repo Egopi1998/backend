@@ -10,7 +10,7 @@ pipeline {
     }
     environment {
         def appVersion = '' // declaring variable
-        nexus_url = 'http://nexus.hellandhaven.xyz:8081/'
+        nexus_url = 'nexus.hellandhaven.xyz:8081/'
     }
     stages{
         stage('Sample test'){
