@@ -31,14 +31,14 @@ pipeline {
                 }
             }
         }
-//         stage('installing dendencies') {
-//             steps{
-//                 sh """
-//                     npm install
-//                 """
-//                 // working Agent should have nodejs. npm install --> will create node_modules folder
-//             }
-//         }
+        stage('installing dendencies') {
+            steps{
+                sh """
+                    npm install
+                """
+                // working Agent should have nodejs. npm install --> will create node_modules folder
+            }
+        }
 //         stage('build') {
 //             steps{
 //                 sh """
