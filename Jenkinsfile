@@ -40,14 +40,14 @@ pipeline {
                 // working Agent should have nodejs. npm install --> will create node_modules folder
             }
         }
-//         stage('build') {
-//             steps{
-//                 sh """
-//                     zip -q -r backend-${appVersion}.zip * -x jenkinsfile -x backend-${appVersion}.zip
-//                 """
-//                 // working Agent should have Zip. -x is for exclude
-//             }
-//         }
+        stage('build') {
+            steps{
+                sh """
+                    zip -q -r backend-${appVersion}.zip * -x jenkinsfile -x backend-${appVersion}.zip
+                """
+                // working Agent should have Zip. -x is for exclude
+            }
+        }
 //         stage('Sonar scan') {
 //             environment {
 //                 scannerHome = tool 'sonar-6.0' //referering scanner cli
