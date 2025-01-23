@@ -67,27 +67,27 @@ pipeline {
 //               }
 //             }
 //         }
-//         stage('upload artifact to nexus') {
-//             steps{
-//                 script{
-//                     nexusArtifactUploader {
-//                     nexusVersion: 'nexus3',
-//                     protocol: 'http',
-//                     nexusUrl: "${nexus_url}",
-//                     groupId: 'com.expense',
-//                     version: "${appVersion}",
-//                     repository: 'backend',
-//                     credentialsId: 'nexus_auth', // manage jenkins - credentials - system - global cred 
-//                     artifact: [
-//                         artifactId: 'backend',
-//                         type: 'zip',
-//                         classifier: '',
-//                         file: "backend-" + "${appVersion}" + '.zip',
-//                         ]
-//                     }
-//                 }
-//             }
-//         }
+        stage('upload artifact to nexus') {
+            steps{
+                script{
+                    nexusArtifactUploader {
+                    nexusVersion: 'nexus3',
+                    protocol: 'http',
+                    nexusUrl: "${nexus_url}",
+                    groupId: 'com.expense',
+                    version: "${appVersion}",
+                    repository: 'backend',
+                    credentialsId: 'nexus_auth', // manage jenkins - credentials - system - global cred 
+                    artifact: [
+                        artifactId: 'backend',
+                        type: 'zip',
+                        classifier: '',
+                        file: "backend-" + "${appVersion}" + '.zip',
+                        ]
+                    }
+                }
+            }
+        }
 
 //         stage('trigger deploy') {
 //             steps{
@@ -103,7 +103,7 @@ pipeline {
     post { 
         always { 
             echo 'i am deleting the workspace'
-            // deleteDir() // this will delete workspace in agent 
+            deleteDir() // this will delete workspace in agent 
         }
         failure {
             echo "you are seeing this because job is failed"
