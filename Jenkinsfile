@@ -35,6 +35,7 @@ pipeline {
             steps{
                 sh """
                     npm install
+                    ls -ltr
                 """
                 // working Agent should have nodejs. npm install --> will create node_modules folder
             }
