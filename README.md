@@ -33,6 +33,33 @@ http://public_ip:8081/repository/backend/  session 45 (from 20 mins)
 CI - up steam job
 CD - down stream job
 
+SonarQube:
+------------------
+need sonarqube plugin
+
+Manage jenkins → tools → add sonarQube scanner → like sonar installing on agent 
+
+Manage jenkins  → system → sonarqube installations → server url e.g http://public_ip:9000/
+Name at tools and system should same.
+Sonarqube → myaccount → token → for authentication 
+
+Quality Gate:
+—---------------
+New code → difference between the previous code - present code 
+
+Overall code → code from starting - always prefer quality gate setting on overall code.
+
+Code coverage → unit test write by developers to test the functions → if code have 10 functions → 100% coverage 
+Critical issues → 0
+Security rating → A
+Vulnerabilities → 0
+
+Webhook:
+----------
+
+In git - repo → settings → webhook → http://jenkins.hellandhaven.xyz:8080/github-webhook/
+In sonar → administration →  configure →  webhook →  http://jenkins.hellandhaven.xyz:8080/sonarqube-webhook/
+
 
 
 
