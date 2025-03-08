@@ -1,3 +1,5 @@
 namespace: expense
 Deployment:
   imageVersion: v1.0
+db:
+  url: db-dev.hellandhaven.xyz
